@@ -10,11 +10,16 @@ import com.enigmacamp.mysimpeldagger.data.repository.TraineeInformation
 import com.enigmacamp.mysimpeldagger.data.repository.TraineeInformationImpl
 import com.enigmacamp.mysimpeldagger.di.DaggerAppComponent
 import javax.inject.Inject
+import javax.inject.Named
 
 class MainActivity : AppCompatActivity() {
     @Inject
+    @Named("Basic Trainee")
     lateinit var traineeInfo : TraineeInformation
-//    private lateinit var fresGreduateInfo : TraineeInformation
+
+    @Inject
+    @Named("FresGreduate")
+    lateinit var fresGreduateInfo : TraineeInformation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,11 +27,14 @@ class MainActivity : AppCompatActivity() {
 
         DaggerAppComponent.builder().build().inject(this)
 
+        //Trainee Information
+        Log.d("Trainee",traineeInfo.toString())
         Log.d("Trainee",traineeInfo.getListTrainee().toString())
         Log.d("Trainee",traineeInfo.getCountTrainee().toString())
 
-//        fresGreduateInfo = FresGreduateInformationImpl(traineeDatabase)
-//        Log.d("Trainee", fresGreduateInfo.getListTrainee().toString())
-//        Log.d("Trainee", fresGreduateInfo.getCountTrainee().toString())
+        //Trainee with FresGreduate Information
+        Log.d("Trainee",fresGreduateInfo.toString())
+        Log.d("Trainee", fresGreduateInfo.getListTrainee().toString())
+        Log.d("Trainee", fresGreduateInfo.getCountTrainee().toString())
     }
 }
