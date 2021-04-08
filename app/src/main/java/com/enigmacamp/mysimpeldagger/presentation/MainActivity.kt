@@ -4,21 +4,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.enigmacamp.mysimpeldagger.*
-import com.enigmacamp.mysimpeldagger.data.dao.TraineeDatabaseImpl
-import com.enigmacamp.mysimpeldagger.data.repository.FresGreduateInformationImpl
 import com.enigmacamp.mysimpeldagger.data.repository.TraineeInformation
-import com.enigmacamp.mysimpeldagger.data.repository.TraineeInformationImpl
 import com.enigmacamp.mysimpeldagger.di.DaggerAppComponent
+import com.enigmacamp.mysimpeldagger.di.annotation.FresGreduateMember
+import com.enigmacamp.mysimpeldagger.di.annotation.TraineeMember
 import javax.inject.Inject
-import javax.inject.Named
 
 class MainActivity : AppCompatActivity() {
     @Inject
-    @Named("Basic Trainee")
+    @TraineeMember
     lateinit var traineeInfo : TraineeInformation
 
     @Inject
-    @Named("FresGreduate")
+    @FresGreduateMember
     lateinit var fresGreduateInfo : TraineeInformation
 
     override fun onCreate(savedInstanceState: Bundle?) {
