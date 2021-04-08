@@ -1,6 +1,9 @@
-package com.enigmacamp.mysimpeldagger
+package com.enigmacamp.mysimpeldagger.data.dao
 
-class TraineeDatabaseImpl: TraineeDatabase {
+import com.enigmacamp.mysimpeldagger.data.model.Trainee
+import javax.inject.Inject
+
+class TraineeDatabaseImpl @Inject constructor(): TraineeDatabase {
 
     private  var traineeData = arrayListOf(
         Trainee("1","Doni","23",true),

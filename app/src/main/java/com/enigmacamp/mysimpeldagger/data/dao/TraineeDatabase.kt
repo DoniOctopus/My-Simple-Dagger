@@ -1,4 +1,6 @@
-package com.enigmacamp.mysimpeldagger
+package com.enigmacamp.mysimpeldagger.data.dao
+
+import com.enigmacamp.mysimpeldagger.data.model.Trainee
 
 interface TraineeDatabase {
 
