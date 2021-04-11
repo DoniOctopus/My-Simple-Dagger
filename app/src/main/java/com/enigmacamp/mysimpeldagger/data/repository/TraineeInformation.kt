@@ -6,4 +6,9 @@ interface TraineeInformation {
     fun getListTrainee():List<Trainee>
 
     fun getCountTrainee():Int
+
+    fun registerTrainee(trainee: Trainee)
+
+    fun unregisterTrainee(trainee: Trainee)
+
 }

@@ -10,10 +10,12 @@ import com.enigmacamp.mysimpeldagger.di.annotation.TraineeMember
 import dagger.Binds
 import dagger.Module
 import javax.inject.Named
+import javax.inject.Singleton
 
 @Module
 abstract class AppModule {
 
+    @Singleton
     @Binds
     abstract fun bindTraineeDatabase(traineeDatabaseImpl: TraineeDatabaseImpl): TraineeDatabase
 

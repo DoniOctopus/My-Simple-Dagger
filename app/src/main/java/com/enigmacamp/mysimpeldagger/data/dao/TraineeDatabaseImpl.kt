@@ -26,4 +26,15 @@ class TraineeDatabaseImpl @Inject constructor(): TraineeDatabase {
         }
         return traineeFilter.first()
     }
+
+    override fun update(trainee: Trainee) {
+        delete(trainee)
+        add(trainee)
+    }
+
+    override fun delete(trainee: Trainee) {
+        val trainee =  getById(trainee.traineeID)
+        val selectTraineeID = traineeData.indexOf(trainee)
+        traineeData.removeAt(selectTraineeID)
+    }
 }

@@ -9,4 +9,8 @@ interface TraineeDatabase {
     fun add (newTrainee : Trainee)
 
     fun getById(id:String) : Trainee
+
+    fun update(trainee : Trainee)
+
+    fun delete(trainee: Trainee)
 }
