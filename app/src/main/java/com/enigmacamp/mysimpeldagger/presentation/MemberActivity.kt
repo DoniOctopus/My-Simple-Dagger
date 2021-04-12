@@ -9,6 +9,7 @@ import com.enigmacamp.mysimpeldagger.R
 import com.enigmacamp.mysimpeldagger.data.repository.TraineeInformation
 import com.enigmacamp.mysimpeldagger.databinding.ActivityMemberBinding
 import com.enigmacamp.mysimpeldagger.di.DaggerAppComponent
+import com.enigmacamp.mysimpeldagger.di.DaggerMemberComponent
 import com.enigmacamp.mysimpeldagger.di.annotation.FresGreduateMember
 import com.enigmacamp.mysimpeldagger.di.annotation.TraineeMember
 import javax.inject.Inject
@@ -33,9 +34,10 @@ class MemberActivity : AppCompatActivity() {
         viewBinding = ActivityMemberBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-//        DaggerAppComponent.builder().build().injectMemberActivity(this)
-        (application as BaseApplication).appComponent.getMemberComponentBuilder.build()
-            .inject(this)
+
+        val appProvider =(application as BaseApplication)
+        DaggerMemberComponent.builder().appComponent(appProvider.appComponent).build().inject(this)
+
 
         Log.d("Trainee", traineeInformation.toString())
 //        Log.d("Trainee", traineeInformation.getListTrainee().toString())

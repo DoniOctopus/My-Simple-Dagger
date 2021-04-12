@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        (application as BaseApplication).appComponent.inject(this)
+        val appProvider = (application as BaseApplication)
+        appProvider.appComponent.inject(this)
 
         //create mew trainee
         val newTrainee = Trainee("6","maul","20",true)
@@ -44,10 +45,10 @@ class MainActivity : AppCompatActivity() {
 
         val newTrainee2 = Trainee("7","daniel","23")
         traineeInfo.registerTrainee(newTrainee2)
-        fresGreduateInfo.registerTrainee(newTrainee2)
+//        fresGreduateInfo.registerTrainee(newTrainee2)
 
         //unregister member trainee
-        fresGreduateInfo.unregisterTrainee(newTrainee)
+//        fresGreduateInfo.unregisterTrainee(newTrainee)
 
         //Trainee Information
         Log.d("Trainee",traineeInfo.toString())
