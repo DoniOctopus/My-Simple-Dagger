@@ -3,13 +3,12 @@ package com.enigmacamp.mysimpeldagger.presentation
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
 import android.util.Log
 import com.enigmacamp.mysimpeldagger.*
+import com.enigmacamp.mysimpeldagger.data.AppSharedPreferences
 import com.enigmacamp.mysimpeldagger.data.model.Trainee
 import com.enigmacamp.mysimpeldagger.data.repository.TraineeInformation
 import com.enigmacamp.mysimpeldagger.databinding.ActivityMainBinding
-import com.enigmacamp.mysimpeldagger.di.DaggerAppComponent
 import com.enigmacamp.mysimpeldagger.di.annotation.FresGreduateMember
 import com.enigmacamp.mysimpeldagger.di.annotation.TraineeMember
 import javax.inject.Inject
@@ -25,6 +24,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityMainBinding
 
+    @Inject
+    lateinit var appSharedPreferences: AppSharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,8 +38,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val appProvider = (application as BaseApplication)
-        appProvider.appComponent.inject(this)
+       app.appComponent.inject(this)
 
         //create mew trainee
         val newTrainee = Trainee("6","maul","20",true)
@@ -45,10 +46,11 @@ class MainActivity : AppCompatActivity() {
 
         val newTrainee2 = Trainee("7","daniel","23")
         traineeInfo.registerTrainee(newTrainee2)
-//        fresGreduateInfo.registerTrainee(newTrainee2)
+        fresGreduateInfo.registerTrainee(newTrainee2)
+        fresGreduateInfo.unregisterTrainee(newTrainee)
 
-        //unregister member trainee
-//        fresGreduateInfo.unregisterTrainee(newTrainee)
+        appSharedPreferences.add("token","123")
+        Log.d("SharedPref",appSharedPreferences.toString())
 
         //Trainee Information
         Log.d("Trainee",traineeInfo.toString())

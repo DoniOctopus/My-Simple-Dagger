@@ -7,6 +7,5 @@ import dagger.Provides
 @Module
 class MemberModule {
     @Provides
-    @TraineeScope
     fun provideTitle() = "Mr/Ms"
 }

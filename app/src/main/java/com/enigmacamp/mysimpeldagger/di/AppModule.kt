@@ -12,20 +12,7 @@ import dagger.Module
 import javax.inject.Named
 import javax.inject.Singleton
 
-@Module
+@Module(subcomponents = [MemberComponent::class],includes = [DataModule::class])
 abstract class AppModule {
 
-    @Singleton
-    @Binds
-    abstract fun bindTraineeDatabase(traineeDatabaseImpl: TraineeDatabaseImpl): TraineeDatabase
-
-    @Singleton
-    @Binds
-    @TraineeMember
-    abstract fun bindTraineeInformation(traineeInformationImpl: TraineeInformationImpl) : TraineeInformation
-
-    @Singleton
-    @Binds
-    @FresGreduateMember
-    abstract fun bindFresGreduateInformation(fresGreduateInformationImpl: FresGreduateInformationImpl) : TraineeInformation
 }
