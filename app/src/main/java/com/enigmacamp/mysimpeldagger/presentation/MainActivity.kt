@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        DaggerAppComponent.builder().build().inject(this)
+        (application as BaseApplication).appComponent.inject(this)
 
         //create mew trainee
         val newTrainee = Trainee("6","maul","20",true)
@@ -51,12 +51,12 @@ class MainActivity : AppCompatActivity() {
 
         //Trainee Information
         Log.d("Trainee",traineeInfo.toString())
-        Log.d("Trainee",traineeInfo.getListTrainee().toString())
-        Log.d("Trainee",traineeInfo.getCountTrainee().toString())
+//        Log.d("Trainee",traineeInfo.getListTrainee().toString())
+//        Log.d("Trainee",traineeInfo.getCountTrainee().toString())
 
         //Trainee with FresGreduate Information
         Log.d("Trainee",fresGreduateInfo.toString())
-        Log.d("Trainee", fresGreduateInfo.getListTrainee().toString())
-        Log.d("Trainee", fresGreduateInfo.getCountTrainee().toString())
+//        Log.d("Trainee", fresGreduateInfo.getListTrainee().toString())
+//        Log.d("Trainee", fresGreduateInfo.getCountTrainee().toString())
     }
 }

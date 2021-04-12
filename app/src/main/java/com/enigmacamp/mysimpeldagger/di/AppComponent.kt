@@ -10,5 +10,6 @@ import javax.inject.Singleton
 interface AppComponent {
     fun inject(mainActivity: MainActivity)
 
-    fun injectMemberActivity(memberActivity: MemberActivity)
+//    fun injectMemberActivity(memberActivity: MemberActivity)
+    val getMemberComponentBuilder : MemberComponent.Builder
 }

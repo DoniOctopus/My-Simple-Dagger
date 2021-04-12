@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import com.enigmacamp.mysimpeldagger.BaseApplication
 import com.enigmacamp.mysimpeldagger.R
 import com.enigmacamp.mysimpeldagger.data.repository.TraineeInformation
 import com.enigmacamp.mysimpeldagger.databinding.ActivityMemberBinding
@@ -22,6 +23,9 @@ class MemberActivity : AppCompatActivity() {
     @FresGreduateMember
     lateinit var fresGreduateInformation : TraineeInformation
 
+    @Inject
+    lateinit var title : String
+
     private lateinit var  viewBinding: ActivityMemberBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,14 +33,19 @@ class MemberActivity : AppCompatActivity() {
         viewBinding = ActivityMemberBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        DaggerAppComponent.builder().build().injectMemberActivity(this)
+//        DaggerAppComponent.builder().build().injectMemberActivity(this)
+        (application as BaseApplication).appComponent.getMemberComponentBuilder.build()
+            .inject(this)
+
         Log.d("Trainee", traineeInformation.toString())
-        Log.d("Trainee", traineeInformation.getListTrainee().toString())
-        Log.d("Trainee", traineeInformation.getCountTrainee().toString())
+//        Log.d("Trainee", traineeInformation.getListTrainee().toString())
+//        Log.d("Trainee", traineeInformation.getCountTrainee().toString())
 
         Log.d("Trainee", fresGreduateInformation.toString())
-        Log.d("Trainee", fresGreduateInformation.getListTrainee().toString())
-        Log.d("Trainee", fresGreduateInformation.getCountTrainee().toString())
+//        Log.d("Trainee", fresGreduateInformation.getListTrainee().toString())
+//        Log.d("Trainee", fresGreduateInformation.getCountTrainee().toString())
+
+        Log.d("CustomerTitle",title)
 
     }
 }
