@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.enigmacamp.mysimpeldagger.app
+import com.enigmacamp.mysimpeldagger.data
 import com.enigmacamp.mysimpeldagger.data.AppSharedPreferences
 import com.enigmacamp.mysimpeldagger.data.repository.TraineeInformation
 import com.enigmacamp.mysimpeldagger.databinding.ActivityMemberBinding
+import com.enigmacamp.mysimpeldagger.di.DaggerMemberComponent
 import com.enigmacamp.mysimpeldagger.di.annotation.FresGreduateMember
 import com.enigmacamp.mysimpeldagger.di.annotation.TraineeMember
 import javax.inject.Inject
@@ -34,8 +36,8 @@ class MemberActivity : AppCompatActivity() {
         viewBinding = ActivityMemberBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        app.appComponent.getTrainerComponentBuilder.build()
-            .inject(this)
+        DaggerMemberComponent.builder().dataComponent(data.provideDataComponent())
+            .build().inject(this)
 
         Log.d("SharedPref", appSharedPreferences.get("token").toString())
         Log.d("SharedPref", appSharedPreferences.toString())

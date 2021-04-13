@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
 
         val newTrainee2 = Trainee("7","daniel","23")
         traineeInfo.registerTrainee(newTrainee2)
-        fresGreduateInfo.registerTrainee(newTrainee2)
-        fresGreduateInfo.unregisterTrainee(newTrainee)
+//        fresGreduateInfo.registerTrainee(newTrainee2)
+//        fresGreduateInfo.unregisterTrainee(newTrainee)
 
         appSharedPreferences.add("token","123")
         Log.d("SharedPref",appSharedPreferences.toString())
