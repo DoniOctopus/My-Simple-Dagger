@@ -11,9 +11,10 @@ import com.enigmacamp.mysimpeldagger.data.repository.TraineeInformation
 import com.enigmacamp.mysimpeldagger.databinding.ActivityMainBinding
 import com.enigmacamp.mysimpeldagger.di.annotation.FresGreduateMember
 import com.enigmacamp.mysimpeldagger.di.annotation.TraineeMember
+import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
     @Inject
     @TraineeMember
     lateinit var traineeInfo : TraineeInformation
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-       app.appComponent.inject(this)
+//       app.appComponent.inject(this)
 
         //create mew trainee
         val newTrainee = Trainee("6","maul","20",true)

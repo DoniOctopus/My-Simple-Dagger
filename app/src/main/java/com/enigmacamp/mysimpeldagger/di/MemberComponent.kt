@@ -8,9 +8,7 @@ import dagger.Subcomponent
 
 @TraineeScope
 @Component(
-    modules = [MemberModule::class],
     dependencies = [DataComponent::class]
 )
 interface MemberComponent{
-    fun inject(memberActivity: MemberActivity)
 }
