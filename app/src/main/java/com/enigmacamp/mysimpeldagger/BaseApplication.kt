@@ -6,16 +6,12 @@ import com.enigmacamp.mysimpeldagger.di.*
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
-class BaseApplication : DaggerApplication(), DataComponentProvide {
+class BaseApplication : DaggerApplication() {
 lateinit var appComponent: AppComponent
-private lateinit var dataComponent: DataComponent
 
     override fun  applicationInjector(): AndroidInjector<out DaggerApplication>? {
-        dataComponent =
-            DaggerDataComponent.builder().getApplicationContext(applicationContext).build()
-            appComponent = DaggerAppComponent.builder().dataComponent(dataComponent).build()
+        appComponent =
+            DaggerAppComponent.builder().getApplicationContext(applicationContext).build()
         return appComponent
     }
-
-    override fun provideDataComponent()= dataComponent
 }

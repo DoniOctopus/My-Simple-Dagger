@@ -6,9 +6,10 @@ import dagger.Component
 import dagger.Subcomponent
 
 
-@TraineeScope
-@Component(
-    dependencies = [DataComponent::class]
-)
+@Subcomponent
 interface MemberComponent{
+    @Subcomponent.Builder
+    interface Builder{
+        fun build(): MemberComponent
+    }
 }

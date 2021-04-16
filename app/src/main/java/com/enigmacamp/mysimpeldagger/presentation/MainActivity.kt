@@ -1,7 +1,6 @@
 package com.enigmacamp.mysimpeldagger.presentation
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.enigmacamp.mysimpeldagger.*

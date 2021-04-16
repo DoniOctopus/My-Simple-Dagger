@@ -14,9 +14,7 @@ abstract class ActivityBuilderModule {
     @ContributesAndroidInjector
     abstract fun contributeMainActivity(): MainActivity
 
-    @TraineeScope
-    @ContributesAndroidInjector(
-        modules = [MemberModule::class]
-    )
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [MemberModule::class])
     abstract fun contributeMemberActivity() : MemberActivity
 }

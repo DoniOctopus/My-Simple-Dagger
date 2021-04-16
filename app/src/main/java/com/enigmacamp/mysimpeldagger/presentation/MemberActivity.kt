@@ -1,12 +1,10 @@
 package com.enigmacamp.mysimpeldagger.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.enigmacamp.mysimpeldagger.data.AppSharedPreferences
 import com.enigmacamp.mysimpeldagger.data.repository.TraineeInformation
 import com.enigmacamp.mysimpeldagger.databinding.ActivityMemberBinding
-import com.enigmacamp.mysimpeldagger.di.DaggerMemberComponent
 import com.enigmacamp.mysimpeldagger.di.annotation.FresGreduateMember
 import com.enigmacamp.mysimpeldagger.di.annotation.TraineeMember
 import dagger.android.support.DaggerAppCompatActivity

@@ -20,12 +20,10 @@ abstract class DataModule {
     @Binds
     abstract fun bindTraineeDatabase(traineeDatabaseImpl: TraineeDatabaseImpl): TraineeDatabase
 
-    @Singleton
     @Binds
     @TraineeMember
     abstract fun bindTraineeInformation(traineeInformationImpl: TraineeInformationImpl) : TraineeInformation
 
-    @Singleton
     @Binds
     @FresGreduateMember
     abstract fun bindFresGreduateInformation(fresGreduateInformationImpl: FresGreduateInformationImpl) : TraineeInformation
